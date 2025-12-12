@@ -27,7 +27,9 @@ class Livro:
         return self._disponivel
    
     def marcar_emprestado(self) -> None:
-        pass
-
+        self._disponivel = False
+        return self._disponivel
+       
     def marcar_devolvido(self) -> None:
-        pass
+       self._disponivel = True
+       return self._disponivel
