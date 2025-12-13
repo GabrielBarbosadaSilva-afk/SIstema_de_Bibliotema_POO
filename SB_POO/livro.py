@@ -35,4 +35,4 @@ class Livro:
         pass
 
     def __str__(self):
-        return f'ID: {self.id_livro}; \nTítulo: {self.titulo}; \nAutor: {self.autor}; \nAno de lançamento: {self.ano}.\n{"_"*20}\n'
+        return f'\nID: {self.id_livro}; \nTítulo: {self.titulo}; \nAutor: {self.autor}; \nAno de lançamento: {self.ano}.\n{"_"*20}\n'
