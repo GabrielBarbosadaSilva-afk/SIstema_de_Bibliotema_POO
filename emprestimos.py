@@ -2,8 +2,8 @@ class Emprestimo:
     def __init__(self, livro, usuario, data_emprestimo, data_devolucao):
         self._livro = livro
         self._usuario = usuario
-        self._data_emprestimo = data_emprestimo # isso deve ser feito com a datetime?
-        self._data_devolucao = data_devolucao # calcular automaticamente baseado em data_emprestimo?
+        self._data_emprestimo = data_emprestimo # isso deve ser feito com a datetime? -sim
+        self._data_devolucao = data_devolucao # calcular automaticamente baseado em data_emprestimo? -sim
 
     @property
     def livro(self):
