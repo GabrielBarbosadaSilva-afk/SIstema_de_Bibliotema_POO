@@ -29,10 +29,12 @@ class Livro:
         return self._disponivel
    
     def marcar_emprestado(self) -> None:
-        pass
-
+        self._disponivel = False
+        return self._disponivel
+       
     def marcar_devolvido(self) -> None:
-        pass
+       self._disponivel = True
+       return self._disponivel
 
     def __str__(self):
         return f'\nID: {self.id_livro}; \nTítulo: {self.titulo}; \nAutor: {self.autor}; \nAno de lançamento: {self.ano}.\n{"_"*20}\n'
