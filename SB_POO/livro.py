@@ -1,13 +1,15 @@
 class Livro:
-    def __init__(self, id_livro: int, titulo: str, autor: str, ano: int):
-        self._id_livro = id_livro
+    id_livr = 0.001
+    def __init__(self, titulo: str, autor: str, ano: int):
+        self._id_livro = Livro.id_livr
         self._titulo = titulo
         self._autor = autor
         self._ano = ano
         self._disponivel = True
+        Livro.id_livr += 0.001
    
     @property
-    def id_livro(self) -> int:
+    def id_livro(self) -> float:
         return self._id_livro
 
     @property
@@ -33,3 +35,6 @@ class Livro:
     def marcar_devolvido(self) -> None:
        self._disponivel = True
        return self._disponivel
+
+    def __str__(self):
+        return f'\nID: {self.id_livro}; \nTítulo: {self.titulo}; \nAutor: {self.autor}; \nAno de lançamento: {self.ano}.\n{"_"*20}\n'
