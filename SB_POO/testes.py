@@ -22,4 +22,6 @@ if __name__ == '__main__':
     b.cadastrar_livro(l2)
     b.cadastrar_livro(l3)
     b.listar_livros()
+    b.buscar_usuario_por_id(10)
+    b.buscar_livro_por_id(0.002)
 

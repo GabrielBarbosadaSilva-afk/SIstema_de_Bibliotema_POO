@@ -23,13 +23,13 @@ class Biblioteca:
 
     def buscar_livro_por_id(self, id_livro):
         for l in self._livros:
-            if id_livro == Livro.id_livro:
-                print(l)
+            if id_livro == l.id_livro:
+                print('*'*30,f'\n*{"O livro encontrado foi:":^28}*\n','*'*29, l)
 
     def buscar_usuario_por_id(self, id_usuario):
         for u in self._usuarios:
-            if id_usuario == Usuario.id_usuario:
-                print(u)
+            if id_usuario == u.id_usuario:
+                print('*'*30,f'\n*{"O usuário encontrado foi:":^28}*\n','*'*29, u)
 
     def emprestar_livro(self, id_livro, id_usuario):
         pass

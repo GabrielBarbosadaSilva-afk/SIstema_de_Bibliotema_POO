@@ -21,7 +21,7 @@ class Usuario(abc.ABC):
         return True or False
 
     def __str__(self):
-        return f'Tipo de usuario: {self.tipo}; \nID: {self.id_usuario}; \nNome: {self.nome}.\n{"_"*20}\n'
+        return f'\nTipo de usuario: {self.tipo}; \nID: {self.id_usuario}; \nNome: {self.nome}.\n{"_"*20}\n'
 
 class Aluno(Usuario):
     tipo = 'Aluno'
