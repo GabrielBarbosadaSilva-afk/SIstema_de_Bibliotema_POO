@@ -15,7 +15,7 @@ class Biblioteca:
         print('*'*30,f'\n*{"Lista de Livros:":^28}*\n','*'*29)
         for l in self._livros:
             print(l)
-
+         
     def listar_usuarios(self) -> None:
         print('*'*30,f'\n*{"Lista de Usuários:":^28}*\n','*'*29)
         for u in self._usuarios:
