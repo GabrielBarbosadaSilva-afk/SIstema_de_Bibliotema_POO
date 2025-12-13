@@ -1,33 +1,37 @@
 import abc
 
 class Usuario(abc.ABC):
+    id_us = 10
     @abc.abstractmethod
-    def __init__(self, id_usuario, nome):
-        self._id_usuario = id_usuario
+    def __init__(self, nome):
         self._nome = nome
+        self._id_usuario = Usuario.id_us
+        Usuario.id_us += 10
+        
     
     @property
-    def id_usuario(self):
-        self._id_usuario = int
+    def id_usuario(self) -> int:
+        return self._id_usuario
 
     @property
-    def nome(self):
-        self._nome = str
-    
-    @nome.setter
-    def nome(self):
-        return self._nome
+    def nome(self) -> str:
+        return self._nome 
     
     def pode_emprestar():
         return True or False
 
+    def __str__(self):
+        return f'Tipo de usuario: {self.tipo}; \nID: {self.id_usuario}; \nNome: {self.nome}.\n{"_"*20}\n'
+
 class Aluno(Usuario):
-    def __init__(self, id_usuario, nome, limite_emprestmo):
-        super().__init__(id_usuario, nome)
+    tipo = 'Aluno'
+    def __init__(self, nome):
+        super().__init__(nome)
         self._limite_emprestimo = 2
     
 
 class Professor(Usuario):
-    def __init__(self, id_usuario, nome, limite_emprestimo):
-        super().__init__(id_usuario, nome)
+    tipo = 'Professor'
+    def __init__(self, nome):
+        super().__init__(nome)
         self._limite_emprestimo = 3
