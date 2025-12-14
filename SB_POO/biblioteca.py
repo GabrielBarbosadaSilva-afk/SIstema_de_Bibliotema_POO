@@ -38,11 +38,11 @@ class Biblioteca:
         usuario = self.buscar_usuario_por_id(id_usuario)
         if livro.disponivel:
             
-            livro.marcar_emprestado
+            livro.marcar_emprestado()
 
     def devolver_livro(self, id_livro: int, id_usuario: int) -> None:
         livro = self.buscar_livro_por_id(id_livro)
         if not(livro.disponivel):
             
-            livro.marcar_devolvido
+            livro.marcar_devolvido()
 
