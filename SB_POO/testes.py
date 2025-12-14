@@ -24,4 +24,7 @@ if __name__ == '__main__':
     b.listar_livros()
     b.buscar_usuario_por_id(10)
     b.buscar_livro_por_id(0.002)
+    b.emprestar_livro(0.001, 10)
+    b.emprestar_livro(0.002, 10)
+    b.listar_livros_emprestados_para_usuario(10)
 

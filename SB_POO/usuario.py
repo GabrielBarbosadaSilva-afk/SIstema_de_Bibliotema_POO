@@ -7,6 +7,8 @@ class Usuario(abc.ABC):
         self._nome = nome
         self._id_usuario = Usuario.id_us
         Usuario.id_us += 10
+        self._livros_pegos = []
+        self._limite_emprestimo = int
         
     
     @property
@@ -16,12 +18,29 @@ class Usuario(abc.ABC):
     @property
     def nome(self) -> str:
         return self._nome 
+
+    @property
+    def livros_pegos(self):
+        return self._livros_pegos
+
+    @property
+    def limite_emprestimo(self):
+        return self._limite_emprestimo
+
+    @limite_emprestimo.setter
+    def limite_emprestimo(self, limite : int):
+        self._limite_emprestimo = limite
+        return self._limite_emprestimo
     
-    def pode_emprestar() -> bool:
-        return True or False
+    @abc.abstractmethod
+    def pode_emprestar(self) -> bool:
+        if self.limite_emprestimo <= 0:
+            return False
+        else:
+            return True
 
     def __str__(self):
-        return f'\nTipo de usuario: {self.tipo}; \nID: {self.id_usuario}; \nNome: {self.nome}; \nEmprestimos disponíiveis: {self.l}.\n{"_"*20}\n'
+        return f'\nTipo de usuario: {self.tipo}; \nID: {self.id_usuario}; \nNome: {self.nome}; \nEmprestimos disponíiveis: {self.limite_emprestimo}.\n{"_"*20}\n'
 
 class Aluno(Usuario):
     tipo = 'Aluno'
@@ -30,10 +49,8 @@ class Aluno(Usuario):
         self._limite_emprestimo = 2
     
     def pode_emprestar(self) -> bool:
-        if self._limite_emprestimo < 0:
-            return False
-        else:
-            return True
+        super().pode_emprestar()
+        
 
 class Professor(Usuario):
     tipo = 'Professor'
@@ -42,8 +59,5 @@ class Professor(Usuario):
         self._limite_emprestimo = 3
 
     def pode_emprestar(self) -> bool:
-        if self._limite_emprestimo < 0:
-            return False
-        else:
-            return True
+        super().pode_emprestar()
 

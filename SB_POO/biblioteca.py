@@ -4,6 +4,7 @@ class Biblioteca:
     def __init__(self):
         self._livros = [] 
         self._usuarios = []
+        
 
     def cadastrar_livro(self, livro: Livro) -> None:
         self._livros.append(livro)
@@ -36,13 +37,23 @@ class Biblioteca:
     def emprestar_livro(self, id_livro: int, id_usuario: int) -> None:
         livro = self.buscar_livro_por_id(id_livro)
         usuario = self.buscar_usuario_por_id(id_usuario)
-        if livro.disponivel:
-            
-            livro.marcar_emprestado
+        if livro.disponivel and usuario.pode_emprestar:
+            usuario.limite_emprestimo -= 1
+            usuario.livros_pegos.append(livro)
+            return livro.marcar_emprestado()
+
 
     def devolver_livro(self, id_livro: int, id_usuario: int) -> None:
         livro = self.buscar_livro_por_id(id_livro)
-        if not(livro.disponivel):
-            
-            livro.marcar_devolvido
+        usuario = self.buscar_usuario_por_id(id_usuario)
+        if not(livro.disponivel) and livro in usuario.livros_pegos:
+            usuario.limite_emprestimo += 1
+            usuario.livros_pegos.remove(livro)
+            return livro.marcar_devolvido()
 
+    def listar_livros_emprestados_para_usuario(self, id_usuario: int):
+        usuario = self.buscar_usuario_por_id(id_usuario)
+        print('*'*50,f'\n*{"Lista de livros pegos pelo usuário determinado:":^48}*\n','*'*49, usuario)
+        for livros in usuario.livros_pegos:
+            print(livros)
+        

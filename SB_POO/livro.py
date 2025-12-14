@@ -37,4 +37,4 @@ class Livro:
        return self._disponivel
 
     def __str__(self):
-        return f'\nID: {self.id_livro}; \nTítulo: {self.titulo}; \nAutor: {self.autor}; \nAno de lançamento: {self.ano};\n{"O livro está disponível para empréstimo" if self.disponivel else "O livro não está disponível para empréstimo"}.\n{"_"*20}\n'
+        return f'\nID: {self.id_livro}; \nTítulo: {self.titulo}; \nAutor: {self.autor}; \nAno de lançamento: {self.ano};\n{"O livro está disponível para empréstimo" if self.disponivel else "O livro já está emprestado"}.\n{"_"*20}\n'
