@@ -46,7 +46,7 @@ class Biblioteca:
         # verifica se o empréstimo é possível
         if not livro.disponivel:
             return
-        if not usuario.podeEmprestar():
+        if not usuario.pode_emprestar():
             return
         
         # se a função não retornou, o empréstimo é válido
@@ -72,3 +72,4 @@ class Biblioteca:
         if emprestimoExiste:
             livro.marcar_devolvido()
             emprestimo.registrar_devolucao()
+
